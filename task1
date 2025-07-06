@@ -1,0 +1,22 @@
+from transformers import pipeline
+
+# Load the summarization pipeline
+summarizer = pipeline("summarization")
+
+# Input text
+input_text = """
+The global climate crisis continues to escalate. Rising temperatures, melting ice caps, and 
+increased carbon emissions pose severe threats to biodiversity and human life. Experts 
+emphasize the need for immediate policy changes, international cooperation, and investment 
+in renewable energy to curb the effects of climate change.
+"""
+
+# Perform summarization
+summary = summarizer(input_text, max_length=50, min_length=25, do_sample=False)
+
+# Display results
+print("🔸 Original Text:\n")
+print(input_text)
+print("\n🔹 Summary:\n")
+print(summary[0]['summary_text'])
+
